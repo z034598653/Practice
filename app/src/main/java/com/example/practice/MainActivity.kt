@@ -2,10 +2,13 @@ package com.example.practice
 
 import Model.StockDTO
 import android.content.ContentValues
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,6 +17,7 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db:SQLiteDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,13 +27,19 @@ class MainActivity : AppCompatActivity() {
         stockListView.adapter = arrayAdapter
         db = DBHelper(this).writableDatabase
         db.delete("myTable",null,null)
-
+        var idButton = findViewById<Button>(R.id.Login)
         httpSync()
+        idButton.setOnClickListener {
+            var intent = Intent(this, MainActivity2::class.java)
+        startActivity(intent)
+        }
       //  db.delete("myTable",null,null)
 
        // vc.put("StockNumber")
         //db.insert("myTable",)
     }
+
+
     fun httpSync() {
         val req = Request.Builder().url("https://www.twse.com.tw/exchangeReport/STOCK_DAY_ALL?response=open_dat").build()
         OkHttpClient().newCall(req).enqueue(object :Callback {
