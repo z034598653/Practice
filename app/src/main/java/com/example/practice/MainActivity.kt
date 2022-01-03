@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         var idButton = findViewById<Button>(R.id.Login)
         httpSync()
         idButton.setOnClickListener {
-            var intent = Intent(this, MainActivity2::class.java)
+            var intent = Intent(this, HomeView::class.java)
         startActivity(intent)
         }
       //  db.delete("myTable",null,null)

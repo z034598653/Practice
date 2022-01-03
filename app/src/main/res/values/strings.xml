@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TaiwanStock</string>
+    <string name="title_activity_home_view">HomeView</string>
+    <string name="title_home">自選股</string>
+    <string name="title_dashboard">選股</string>
+    <string name="title_notifications">大盤</string>
 </resources>

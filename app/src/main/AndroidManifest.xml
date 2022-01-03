@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".HomeView"
+            android:exported="true"
+            android:label="@string/title_activity_home_view" />
+        <activity
             android:name=".MainActivity2"
             android:exported="true" />
         <activity android:name=".MainActivity">
